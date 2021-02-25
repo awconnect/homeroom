@@ -115,7 +115,7 @@ function HomeChat() {
       </div>
       <div ref={scrollRef}></div>
       <form onSubmit ={submitMessage}>
-        <input value={formVal} onChange={(event) => setFormVal(event.target.value)} placeholder="abhi's so cool!"></input>
+        <input value={formVal} onChange={(event) => setFormVal(event.target.value)} placeholder="abhi is so cool"></input>
         <button type="submit">💩</button>
       </form>
     </>

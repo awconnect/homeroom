@@ -1,5 +1,4 @@
 {
-  "homepage": "http://awconnect.github.io/homeroom",
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -7,9 +6,8 @@
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "gh-pages -d build && firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "predeploy": "npm run build"
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
   "engines": {
     "node": "12"

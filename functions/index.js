@@ -25,3 +25,4 @@ exports.detectAllowedUsers = functions.auth.user().onCreate((user) => {
     // if (user. in allowedUsers)
   
 });
+// https://github.com/settings/connections/applications/89cf50f02ac6aaed3484 to revoke auth

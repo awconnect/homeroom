@@ -81,15 +81,15 @@ function SignOut() {
  *  messages: reference to data from 'messages' collection, listens to database by query via useCollectionData() react-firebase hook.
  */
 function HomeChat() {
+  const scrollRef = useRef();
+
   const messagesRef = firestore.collection('messages'); //references a firestore collection
-  console.log("Check enter.");
+
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, {idField: 'id'}); //listen to data with a hook. changes to messages cause the app to re-render in real time.
 
   const [formVal, setFormVal] = useState('');
-
-  const scrollRef = useRef();
 
   const submitMessage = async(e) => {
     e.preventDefault(); //avoid refresh
@@ -102,23 +102,42 @@ function HomeChat() {
       uid,
       photoURL
     })
-
+  
     setFormVal(''); //reset form value to empty string
+
     scrollRef.current.scrollIntoView({ behavior: 'smooth' });
   }
 
 
   return (
+
     <>
-      <div>
-        {messages && messages.map(msg => <Chat key={msg.id} message={msg}/>)}
-      </div>
-      <div ref={scrollRef}></div>
-      <form onSubmit ={submitMessage}>
-        <input value={formVal} onChange={(event) => setFormVal(event.target.value)} placeholder="abhi is so cool"></input>
-        <button type="submit">💩</button>
+      <main>
+
+        {messages && messages.map(msg => <Chat key={msg.id} message={msg} />)}
+
+        <span ref={scrollRef}></span>
+
+      </main>
+
+      <form onSubmit={submitMessage}>
+
+        <input value={formVal} onChange={(e) => setFormVal(e.target.value)} placeholder="say something nice" />
+
+        <button type="submit" disabled={!formVal}>🕊️</button>
+
       </form>
     </>
+    // <>
+    //   <div>
+    //     {messages && messages.map(msg => <Chat key={msg.id} message={msg}/>)}
+    //   </div>
+    //   <div ref={scrollRef}></div>
+    //   <form onSubmit ={submitMessage}>
+    //     <input value={formVal} onChange={(event) => setFormVal(event.target.value)} placeholder="abhi is so cool"></input>
+    //     <button type="submit">💩</button>
+    //   </form>
+    // </>
   )
 }
 

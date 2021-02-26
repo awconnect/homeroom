@@ -1,3 +1,12 @@
+# Homeroom: A realtime, lightweight, fully secure chat application for your family.
+
+Made with [ReactJS](https://reactjs.org/) and [Google Firebase](https://firebase.google.com/), and love. Clone this repo and establish your own backend security rules to run the application!
+
+Features user authentication via Google sign in. Hosted at https://homeroomchat.firebaseapp.com/. Currently only available for authorized users.
+
+---
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
